@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Central Fit — Premium Fitness Design System
+   All colors HSL. Bold dark base + electric lime accent.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    /* Core surfaces — deep black to charcoal */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary — bright off-white (matches monochrome logo) */
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 5%;
+    --primary-glow: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 62%;
+
+    /* Accent — warm gold from the logo plates */
+    --accent: 42 95% 55%;
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 98%;
+
+    --radius: 0.25rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 4% / 0.3) 0%, hsl(0 0% 4% / 0.7) 60%, hsl(0 0% 4%) 100%);
+    --gradient-lime: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 75%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 8%));
+    --gradient-radial: radial-gradient(circle at 50% 50%, hsl(0 0% 98% / 0.12), transparent 60%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 95% 55%), hsl(38 90% 45%));
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(0 0% 98% / 0.35);
+    --shadow-card: 0 20px 60px -20px hsl(0 0% 0% / 0.8);
+    --shadow-intense: 0 30px 80px -20px hsl(0 0% 98% / 0.2);
+
+    /* Transitions */
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Anton', 'Impact', sans-serif;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+
+  .text-balance { text-wrap: balance; }
+
+  .gradient-lime {
+    background: var(--gradient-lime);
+  }
+
+  .glow-lime {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 2px hsl(var(--foreground));
+    color: transparent;
+  }
+
+  .text-stroke-primary {
+    -webkit-text-stroke: 2px hsl(var(--primary));
+    color: transparent;
+  }
+
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.06;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+}
